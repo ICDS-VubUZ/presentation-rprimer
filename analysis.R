@@ -1,1 +1,1 @@
-install.packages("tidyverse","readxl","knitr")
+install.packages(c("tidyverse","readxl","knitr"))

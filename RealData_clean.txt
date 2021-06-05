@@ -1,0 +1,281 @@
+Pte	Dx	P	A	Location operation	Size mm (FMT,VZ, QRT)	FMT (mm)	MSD (mm)	RCOP (mm)	Measurement in endom	CL	CL score (0->2 =neg->circle)	Treatment	Delay Dx-evac	evac <20d	evac > 20d	Complications	PXX	Curet	Pil	Age
+1	TB	3	1		VZ 24 (vierling)		24		Y	?	?	0	14	14		0	8			30
+2	TB	1			FMT 13	13			Y/N	?	?	Telo800+curet	16		16	endometrite	61	Y		32
+3	FLIN	1			VZ 23 		23		Y	1	2	Telo800	78		78	0	61			43
+4	TB	1			FMT 12	12			Y	?	?	0	30		30	0	61			29
+5	TB	2			FMT 8	8			N	0	0	Telo800	14	14		0	15.1			48
+6	TB	3	2		FMT 6	6			N	?	?	0	9	9		0	3.21			34
+7	FLIN	1	1		FMT 2	2			Y	1	1	0	5	5		0	?			37
+8	TB	2		1	FMT 8	8			Y	1	2	Telo800x2+pil+HSC	52		52	0	?	Y	Y	30
+9	QRT	1	1		QRT 10			10	Y	1	2	Telo800	21		21	0	?			35
+10	TB	4			VZ 45		45		Y	1	1	Telo800+curet	41		41	0	38.28	Y		30
+11	QRT	2			VZ 8		8		Y	1	2	Telo800+curet	0		0	Hemorragie	?	Y		34
+12	FLIN	4			FMT 4	4			Y	1	2	Telo800+curet	50		50	0	?	Y		25
+13	QRT				QRT 13			13	Y	0	0	0	2	2		0	0.86			28
+14	FLIN	1	2		VZ 9		9		Y	0	0	0	9	9		0	6.2			35
+15	QRT				QRT 27			27	Y	1	2	Telo800+curet	30		30	0	?	Y		30
+16	QRT	3		3	QRT 14			14	Y/N	0	0	Telo800	14	14		0	?			36
+17	TB	2		1	VZ 13		13		Y	1	2	Telo800x3+PIL	49		49	0	?		Y	41
+18	TB	1		1	VZ13		13		N	?	?	0	10	10		0	?			33
+19	FLIN	1			VZ 11 -> QRT 23		11		Y/N	0	0	Telo800	5	5		0	9.27			25
+20	TB	2			VZ 22		22		Y	0	0	0	10	10		0	5			41
+21	QRT				QRT 12			12	Y	0	0	Telo800	14	14		0	?			42
+22	TB	3	1		VZ 26		26		Y	0	0	Pil	50	3		0	9.1			31
+23	TB		1		FMT 7	7			N	0	0	Telo800	3	3		0	?			32
+24	TB	1	4		FMT 27	27			Y	1	2	Telo800	28	8		0	?			31
+25	TB		3		FMT 15	15			Y	1	0	Telo800	5	5		0	31.6			35
+26	FLIN				VZ 7		7		N	0	0	0	3	3		0	0.6			37
+27	FLIN		1		FMT 4	4			Y	1	2	Telo800+pil	56		56	0	30.62		Y	41
+28	QRT		1		QRT 19			19	Y	1	2	Telo800+pil	34	10		0	4.27		Y	22
+29	TB	1			FMT 12	12			N	1	2	Telo800	52		52	0	?			32
+30	QRT	3	3		QRT 16			16	Y	1	1	Telo800	14	14		0	?			44
+31	QRT		1		QRT 14			14	Y	1	2	Pil	40		40	0	30.6			29
+32	FLIN	2			FMT 8	8			N	0	0	0	8	8		0	?			31
+33	TB	2			VZ 22		22		Y	0	0	Pil	46		46	0	?			34
+34	TB		1		FMT 3	3			N	0	0	Telo800	26		26	0	?			22
+35	TB				FMT 15	15			N	0	0	0	15	15		0	0.7			30
+36	TB		1		VZ 30		30		Y	0	0	Methergyn	6	6		0	3.47			25
+37	TB				FMT12	12			Y	0	0	0	0	0		0	?			30
+38	TB	1	2		VZ 17		17		N	0	0	Telo800	10	10		0	?			34
+39	TB				FMT 15	15			N	0	0	0	14	14		0	3.6			34
+40	TB	4	2		?				N	0	0	0	3	3		0	7.65			41
+41	QRT	4		1	QRT 15			15	Y	0	0	0	13	13		0	?			34
+42	FLIN				FMT 5	5			Y	0	0	0	6	6		0	?			36
+43	TB	2		2	FMT 3	3			Y	1	2	Telo800X2	22		22	0	20			31
+44	TB	2		2	VZ 25		25		Y	1	1	Telo800+pil	42		42	0	1.14		Y	27
+45	TB	2	1		FMT 14	14			N	0	0	Telo800	10	10		0	?			43
+46	TB	2			FMT 17	17			N	1	2	Curet (pte choice)	3		3	0	?	Y		24
+47	FLIN				VZ 8		8		Y	0	0	0	7	7		0	0.66			32
+48	FLIN		1	1	FMT 5	5			Y	1	2	Telo800+curet+pil+HSC	70		70	Hemorragie	17.55	Y	Y	29
+49	TB	4	3	2	VZ 25		25		Y	0	0	Curet (pte choice?)	13		13	0	11.9	Y		33
+50	TB				FMT 9	9			Y	0	0	Telo800	6	6		0	?			24
+51	TB				FMT 21	21			Y	?	?	Telo800+pil	41		41	0	1.7		Y	20
+52	QRT				QRT 15			15	Y	1	1	Telo800+pil	42		42	0	?			30
+53	TB				FMT 2	2			Y	1	0	Telo800	14	14		0	?			32
+54	TB	1			FMT 18	18			Y	1	1	Telo800+pil	63		63	0	?			35
+55	FLIN				VZ 4		4		Y	0	0	0	27		27	0	4.5			28
+56	QRT				QRT 16			16	Y	0	0	Pil	31		31	0	7.87			34
+57	PRR	1	1		0				N	0	0	0	0	0		0	2.85			29
+58	QRT	3	1		QRT 17			17	Y	1	0	0	5	5		0	2.17			30
+59	QRT	2	2		QRT 15			15	Y	0	0	Telo800	18	18		0	?			33
+60	FLIN	1			VZ 8		8		Y	1	1	0	6	6		0	?			35
+61	FLIN				VZ 5		5		Y	0	0	0	1	1		0	3.51			29
+62	PRR		1		0				N	0	0	0	0	0		0	1.51			32
+63	FLIN	1	1		VZ 4		4		Y	0	0	0	2	2		0	1.37			29
+64	FLIN	2			FMT 3	3			Y	1	1	Telo800	16	16		0	?			25
+65	QRT				QRT 12			12	Y	0	0	0	4	4		0	5.86			28
+66	TB	1	2		VZ 20		20		Y	1	2	Telo800	22		22	0	14.59			43
+67	TB				VZ 32		32		Y	0	0	Telo800	15	15		0	18.76			30
+68	FLIN				FMT 5	5			Y	0	0	0	8	8		0	?			31
+69	TB	1			VZ 24		24		Y	0	0	Telo800+pil	45		45	0	?			35
+70	TB		1		FMT 20	20			Y	1	2	Curet	1		1	0	?	Y		29
+71	FLIN				VZ 17		17		Y	0	0	Telo800	32		32	0	11.1			31
+72	TB				VZ 21		21		Y	1	2	Telo800x2	48		48	0	?			35
+73	PRR				0				0	1	1	0	0	0		0	2.68			29
+74	PRR		1		0				0	0	0	0	0	0		0	0.35			27
+75	TB				FMT 25	25			Y/N	0	0	0	5	5		0	?			29
+76	TB	2	4		VZ 30		30		Y	1	2	0	21		21	0	15.75			32
+77	TB	2	1		FMT 4	4			Y	1	1	0	15	15		0	5.3			37
+78	TB				FMT 4	4			Y	1	1	Telo800x2+pil	60		60	0	7.7			30
+79	PRR	1	1		0				0	0	0	0	0	0		0	0.82			34
+80	FLIN	4	1		VZ 13		13		Y	1	1	Telo800	18	18		0	9.01			36
+81	FLIN	2	2		VZ 9		9		Y	0	0	0	7	7		0	?			31
+82	TB	1			VZ 19		19		Y	0	0	0	?			?	24.08			33
+83	PRR				0				0	0	0	0	0	0		0	1.46			27
+84	TB	3	1		VZ 42		42		Y	0	0	0	7	7		0	9.11			42
+85	FLIN	4	3		VZ 11		11		Y	1	1	0	14	14		0	0.59			43
+86	FLIN				VZ 8		8		Y	1	1	Telo800	14	14		0	6.69			25
+87	PRR	2			0				N	0	0	0	0	0		0	0.59			22
+88	FLIN	4	1		VZ 22		22		Y	0	0	Telo800	11	11		0	?			32
+89	TB				VZ 32		32		Y	1	1	0	18	18		0	9.46			36
+90	TB	2	1		FMT 9	9			Y	0	0	Telo800	14	14		0	?			29
+91	TB	1	1		FMT 19	19			Y	1	2	Telo800+pil	62		62	0	?		Y	43
+92	TB	1	1	2	VZ 80		80		Y	0	0	0	8	8		0	?			35
+93	PRR	1			0				0	0	0	0	0	0		0	0.51			29
+94	FLIN		2		VZ 14		14		Y	0	0	Telo800+curet	47		47	0	32.06	Y		35
+95	FLIN	1			VZ 4		4		Y	0	0	0	6	6		0	1.65			33
+96	PRR				0				0	0	0	0	0	0		0	?			30
+97	QRT	3			QRT 16			16	Y	0	0	Telo800	14	14		0	?		Y	34
+98	TB	3			FMT 21	21			Y	1	2	Telo800	32		32	0	?			33
+99	TB				VZ 34		34		Y	1	1	Telo800	43		43	0	?			25
+100	TB	4	1		VZ 28		28		Y	1	2	Telo800+pil	56		56	0	9.71		Y	37
+101	FLIN	1	2		FMT 6	6			Y	1	2	Telo800+pil+curet	34		34	endometrite	28.16	Y	Y	37
+102	QRT	2		2	QRT 15			15	Y	1	2	Curet	23		23	0	29.53	Y		31
+103	FLIN	2			FMT 6	6			Y	?	?	Curet	42		42	0	?	Y		39
+104	FLIN	3	2		VZ 23 		23		Y	1	2	Telo800 x2	45		45	0	19.9			31
+105	PRR		3		0				N	0	0	0	0	0		0	3.83			44
+106	TB	1			VZ 40		40		Y	1	2	Curet	27		27	Hemorragie	?	Y		33
+107	TB	2	1		FMT 17	17			Y	?	?	Telo800	14	14		0	?			33
+108	FLIN	2	1		VZ 9		9		Y	0	0	0	7	7		0	?			36
+109	FLIN	2	1		VZ 5		5		Y	0	0	0	17	17		0	12.51			33
+110	TB	2	3		FMT 18	18			Y	0	0	0	14	14		0	13.3			32
+111	FLIN	3			VZ 3		3		Y	0	0	0	6	6		0	0.34			40
+112	TB				FMT 6	6			Y	1	2	Curet	57		57	endometrite	?	Y		32
+113	FLIN	1			FMT 3	3			Y	1	1	Telo800	18	18		0	13.21			26
+114	PRR	1	1		0				N	1	1	0	0	0		0	7.28			30
+115	FLIN	2			VZ 35		35		Y	0	0	Telo800	10	10		0	?			35
+116	FLIN		1		VZ 5		5		Y	0	0	0	9	9		0	3.75			29
+117	TB				VZ 21		21		Y	1	2	Telo800+pil	51		51	0	?		Y	34
+118	TB		1		FMT 10	10			Y	1	0	Telo800	12	12		0	?			28
+119	PRR	2	1		0				N	0	0	0	0	0		0	0.32			27
+120	FLIN	2	1		FMT 3	3			Y	0	0	0	6	6		0	?			40
+121	QRT	1	3		QRT 19			19	Y	0	0	0	7	7		0	2.17			28
+122	QRT		1		QRT 17			17	Y	0	1	0	5	5		0	?			27
+123	TB				FMT 16	16			Y	1	1	Telo800+curet	9		9	endometrite	16.7	Y		38
+124	PRR				0				N	1	0	0	0	0		0	4.49			24
+125	TB	2	2	3	FMT 31	31			Y	1	2	Curet	23		23	Hemorragie	29.53	Y		37
+126	FLIN				FMT 5	5			N	1	1	Telo800+curet	35		35	0	32.55	Y		28
+127	FLIN	2			VZ 9		9		Y	1	2	Telo800+pil	56		56	0	?		Y	36
+128	FLIN	1			VZ 14		14		Y	0	0	0	4	4		0	?			30
+129	QRT	3			QRT 32,5			32.5	Y	0	0	Telo800	15	15		0	?			33
+130	FLIN				FMT 3	3			Y	1	0	0	6	6		0	7.46			35
+131	FLIN	1	3	2	FMT 3 -> 7 HS-	7			Y	0	0	Telo800+curet	6		6	Pain after Telo	?	Y		31
+132	FLIN		1		FMT 5	5			Y	0	1	Telo800	10	10		0	?			29
+133	PUL/QRT				Endo 20			20	N	0	0	0	7	7		0	2.02			40
+134	PRR				0				N	0	0	0	0	0		0	0.5			23
+135	FLIN		1		VZ 15	15			Y	1	2	Telo800+pil	>39		40	0	4.27		Y	22
+136	FLIN				FMT 4	4			Y	1	2	0	29		29	?	?			30
+137	FLIN	2			FMT 6,5	6.5			Y	0	0	0	8	8		0	?			35
+138	FLIN	2			VZ 23 		23		Y	1	1	Telo800+pil	65		65	0	?		Y	32
+139	FLIN	6	2		VZ 18		18		Y	1	1	Telo800	22		22	0	?			34
+140	PRR	2			0				N	0	0	0	0	0		0	0.97			30
+141	FLIN	2			FMT 3	3			Y	1	2	Telo800x2	29		29	0	10.29			33
+142	FLIN	2			VZ 25		25		Y	1	1	Telo800+pil	76		76	0	1.24		Y	31
+143	FLIN	2			FMT 3	3			Y	1	2	Curet	9		9	0	?	Y		33
+144	PRR	1			0				N	0	0	0	0	0		0	4.5			35
+145	PRR		1		0				N	1	0	0	0	0		0	1.52			38
+146	FLIN	1			FMT 6,8	6.8			Y	0	0	0	7	7		0	?			32
+147	FLIN		1		FMT 3	3			Y	1	2	Curet	26		26	0	?	Y		29
+148	FLIN				FMT 3	3			Y	1	1	Telo800+pil	74		74	0	7.74		Y	32
+149	FLIN	3	1		VZ 22		22		Y	0	0	0	?			0	?			32
+150	FLIN				FMT 6	6			Y	1	1	Curet	58		58	endometrite	?	Y		34
+151	TB	1			FMT 7	7			N	?	?	Telo 800	12	12		0	61			47
+152	FLIN	2	1		VZ 22		22		N	0	0	Telo 800	7	7		0	?			30
+153	TB		1	1	FMT 12	12			Y	1	2	Telo 800	47		47	0	?			29
+154	FLIN	1			VZ 11		11		Y	1	1	0	34		34	0	9.14			45
+155	PRR	1			0				N	0	0	0	13	13		0	?			25
+156	TB				FMT 7,4	7.4			N	0	0	0	6	6		0	?			21
+157	FLIN				VZ 16		16		Y	1	1	Telo800+pil	56		56	0	?		Y	39
+158	TB	5		3	FMT 16	16			N	1	1	Telo 800	27		27	0	?			36
+159	FLIN	2	1	1	FMT 3	3			N	0	1	Telo 800	49		49	0	14.03		Y	32
+160	FLIN				FMT 2,5	2.5			N	1	2	Curet	23		23	0	33.28	Y		29
+161	PRR								N	0	0	0	0	0		0	4.87			21
+162	FLIN	6			FMT 4	4			N	1	2	Curet	43		43	0	?	Y		29
+163	FLIN	1	1		FMT 5,5	5.5			N	1	1	Telo 800	42		42	0	?			38
+164	FLIN				FMT=5	5			N	0	0	0	4	4		0	?			30
+165	FLIN	1		1	VZ 13		13		Y	1	2	Curet	18		18	0	61	Y		30
+166	TB	1	1		FMT=12	12			N	1	2	Telo800+pil	52		52	0	?		Y	32
+167	FLIN	1			FMT 4	4			N	0	0	0	3	3		0	?			30
+168	TB	2		2	FMT 8	8			N	1	2	Telo800+pil	55		55	0	?		y	39
+169	FLIN		2		VZ 13		13		N	0	0	0	3	3		0	2.77			30
+170	QRT	1			QRT 13			13	Y	0	0	0	2	2		0	5.61			28
+171	FLIN				VZ 13		13		Y	1	2	0	27		27	0	8.27			25
+172	FLIN	5	5		VZ 17		17		Y	1	2	Curet	9		9	Hemorragie	44	Y		42
+173	FLIN				FMT 2	2			Y	1	2	Telo 800	33		33	0	22.81			23
+174	QRT	1			QRT 15			15	Y	0	0	Telo 800	4	4		0	?			33
+175	PRR		1						N	0	0	0	0	0		0	1.18			28
+176	FLIN	3			FMT 4	4			N	0	0	Telo 800	15	15		0	?			29
+177	FLIN	1	1		VZ 10		10		Y	1	1	0	7	7		0	14.01			24
+178	FLIN		5		VZ 4		4		Y	0	0	Telo 800	12	12		0	16.81			23
+179	FLIN	2			VZ 6		6		N	0	0	0	19	19		0	5.72			39
+180	FLIN				VZ 11		11		N	?	?	0	56		56	0	16.21			26
+181	TB				FMT 14	14			N	1	1	Telo 800	22		22	0	27.95			35
+182	PRR	1							N	0	0	0	0	0		0	8.88			28
+183	QRT				QRT 24			24	Y	0	0	0	14	14		0	5			22
+184	TB	2			VZ 45		45		N	?	?	Telo 800	45		45	0	31.66			25
+185	FLIN	1	4		VZ 9		9		N	0	0	0	12	12			18.87			34
+186	PRR	1		1	infected heterotopic abortus				?	0	0	LPS for EP but more PID	0	0		PID	0.76			29
+186 non evol																				
+PUL evol																				
+1	PRR				0				?	?	?						44.7			28
+2	PRR				0				?	1	2						24.73			26
+3	PRR				0				?	1	2						44.7			29
+4	PRR				EP				Y	1	2						34.9			33
+5	PRR				0				?	1	2						32.45			23
+6	PRR				0				?	1	2						15.48			30
+7	PRR				0				?	?	?						28.14			24
+8	PRR				0				?	1	2						27.77			31
+9	PRR				0				?	1	1						17			30
+10	PRR				0				?	1	2						20.96			18
+11	PRR				0				?	1	2						32.42			25
+12	PRR				0				?	1	2						34.13			29
+13	PRR				0				?	1	2						24.24			35
+FLIN evol																				
+1	FLIN									1	2						?			34
+2	FLIN									1	2						38.13			30
+3	FLIN									1	2						?			28
+4	FLIN									1	2						?			33
+5	FLIN									1	2						1.89			27
+6	FLIN									1	2						?			36
+7	FLIN									1	2						?			29
+8	FLIN									1	2						?			40
+9	FLIN									1	2						?			30
+10	FLIN									1	2						61			36
+11	FLIN									1	2						?			29
+12	FLIN									1	2						?			40
+13	FLIN									1	2						?			26
+14	FLIN									1	2						?			35
+15	FLIN									1	2						?			31
+16	FLIN									1	2						?			29
+17	FLIN									1	2						?			33
+18	FLIN									1	2						?			39
+19	FLIN									1	2						61			39
+20	FLIN									1	2						10.52			25
+21	FLIN									1	2						?			27
+22	FLIN									1	2						?			21
+23	FLIN									1	2						16.06			28
+24	FLIN									1	2						?			36
+25	FLIN									1	2						31.1			33
+26	FLIN									1	2						?			31
+27	FLIN									1	2						?			30
+28	FLIN									1	2						?			22
+29	FLIN									1	2						42.8			32
+30	FLIN									1	2						?			27
+31	FLIN									1	2						24.9			29
+32	FLIN									1	2						?			32
+33	FLIN									1	2						33.34			30
+34	FLIN									?	?						24.08			34
+35	FLIN									1	2						?			31
+36	FLIN									1	1						?			21
+37	FLIN									1	1						?			27
+38	FLIN									1	2						?			32
+39	FLIN									0	2						?			19
+40	FLIN									1	1						?			27
+41	FLIN									1	1						?			25
+42	FLIN									1	2						21.62			29
+43	FLIN									1	2						?			20
+44	FLIN									1	2						39.77			29
+45	FLIN									1	2						?			31
+46	FLIN									1	2						?			32
+47	FLIN									1	2						24.77			35
+48	FLIN									1	1						54.37			22
+49	FLIN									0	0						?			31
+50	FLIN									1	2						?			29
+51	FLIN									1	2						?			37
+52	FLIN									1	2						25.96			30
+53	FLIN									1	2						25.58			27
+54	FLIN									1	2						10.42			28
+55	FLIN									0	0						14.5			26
+56	FLIN									?	?						12.49			35
+57	FLIN									?	?						27.6			32
+58	FLIN									1	2						15.4			30
+59	FLIN									1	2						?			28
+60	FLIN	2	2		FMT 5				Y	1	2						?			34
+61	FLIN	1			VZ 10				Y	1	2						20.13			38
+62	FLIN		4		VZ 7				Y	1	2						16.46			31
+63	FLIN	1	2		VZ 8				Y	1	2						33.67			24
+64	FLIN	1	1		VZ 13				Y	1	2						29.83			32
+65	FLIN	2	1		FMT 3				Y	1	2						27.95			29
+66	FLIN				VZ 8				Y	1	2						?			25
+67	FLIN				VZ 11				Y	1	2						?			28
+68	FLIN	2			VZ 10				Y	1	2						15.69			37
+69	FLIN	1	2		VZ 10				Y	1	2						?			28
+70	FLIN				VZ 11				Y	1	2						?			28
+71	FLIN		6		VZ 4				Y	?	?						12.16			23
+72	FLIN	1	1		VZ 20				Y	1	2						?			36
+73	FLIN		1		VZ 11				Y	1	2						48.2			24
+74	FLIN	4	1		VZ 14				Y	1	1						13.99			33
+75	FLIN	3	2	2	VZ 5				Y	1	2						19.51			43
+76	FLIN	1	2		FMT 4				Y	1	2						19.37			36
+77	FLIN	2			VZ 11				Y	1	2						?			32
+78	FLIN	1		1	FMT 4				Y	1	2						27.85			32

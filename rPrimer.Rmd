@@ -1,0 +1,674 @@
+---
+title:  | 
+  | An R Primer
+
+subtitle: preparing for data manipulation and visualization
+
+author: "w\\. cools"
+
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{makecell}
+- \usepackage{float}
+- \renewcommand{\contentsname}{}
+
+- \usepackage{titling}
+- \pretitle{
+- \begin{center}
+- \LARGE
+- \begin{figure}[!h]
+- \begin{minipage}{4cm}
+- \includegraphics[width=4cm,height=1cm,left]{icds.png}\\[\bigskipamount]
+- \end{minipage}
+- \hfill
+- \begin{minipage}{4cm}	
+- \end{minipage}
+- \end{figure}}
+- \posttitle{\end{center}}
+- \usepackage[export]{adjustbox}
+
+- \usepackage{xcolor}
+- \usepackage{graphicx}
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \setlength\headheight{46.3pt}
+- \fancyhead[L]{\includegraphics[height=.7cm]{icds.png}}
+- \fancyfoot[RO]{\textcolor{lightgray}{wilfried.cools@vub.be}}
+
+output:
+ pdf_document:
+  latex_engine: xelatex
+  toc: true
+  toc_depth: 3
+ html_document:
+  toc: true
+---
+
+<script>
+   $(document).ready(function() {
+     $head = $('#header');
+     $head.prepend('<img src="icds.png" style="float: right;width: 300px;"/>')
+   });
+</script>
+
+<style type="text/css">
+
+	body{ font-size: 12px; font-family: Roboto, Garamond; color: #000000 }
+	td { font-size: 8px; }
+
+	.title { font-size: 38px; font-family: Avantgarde, Garamond; color: #000000; }
+	.subtitle { font-size: 20px; font-family: Avantgarde, Garamond; color: #000000; }
+	h1 { font-size: 28px; font-family: Avantgarde, Garamond; color: #003399; }
+	h2 { font-size: 22px; font-family: Avantgarde, Garamond; color: #003399; }
+	h3 { font-size: 18px; font-family: Avantgarde, Garamond; color: #003399; }
+	h4 { font-size: 12px; font-family: Avantgarde, Garamond; color: #003399; }
+
+	.r { font-size: 12px;  color: #003399; background-color: rgba(255, 102, 0, 0.05);}
+	code { font-size: 12px; color: #003399; background-color: rgba(0, 51, 153, 0.00);}
+	pre { font-size: 12px; }
+
+</style>
+
+<!--
+
+www.icds.be - An R Primer, preparing for data manipulation and visualization in R
+
+	Goal: introduce the key R skills in preparation of an introduction to the tidyverse package
+	Audience: focused on all researchers who are interested in learning R
+
+	Wilfried Cools
+	statistical consultant ICDS
+	wilfried.cools@vub.be
+	02 477 44 44
+
+-->
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=FALSE, warning=FALSE, fig.width=12, fig.height=6, tidy.opts = list(width.cutoff = 40))
+```
+
+```{r x_lib, echo=FALSE}
+rm(list=ls(all=TRUE))
+library(knitr)
+library(tidyverse)
+```
+
+<!-- RUN:: working directory and libraries -->
+```{r x_wd, echo=FALSE, eval=FALSE}
+setwd("C:\\Users\\wcools\\Documents\\show\\@ primer")
+```
+
+<!--
+fname <- "rPrimer"
+knitr::purl(paste0(fname,".Rmd"), output=paste0(fname,".r"))
+rmarkdown::render(paste0(fname,".Rmd"),output_format=c('html_document'))
+rmarkdown::render(paste0(fname,".Rmd"),output_format=c('pdf_document'))
+-->
+
+&nbsp;  
+&nbsp;  
+
+Compiled `r format(Sys.time(), '%b %d, %Y')` (R `r paste(R.Version()[c('major','minor')] %>% unlist,collapse=".")`)
+
+\newpage
+
+&nbsp;  
+&nbsp;  
+Learning R will reward the researcher with the ability to read, manipulate, summarize and visualize data with tremendous flexibility, for free, anywhere and anytime. R gives access to an enormous range of statistical techniques made available through R packages, with a huge R community online to help out. The open source programming language R is more than just statistics; packages support reproducible research (eg., markdown), web apps (eg., shiny), databases (eg., SQL), interaction with other programming languages (eg., Python), cloud computing and more.  
+&nbsp;  
+With huge flexibility comes difficult first steps...  
+&nbsp;  
+Current draft aims to introduce researchers to some very basic R features, in order to ensure a minimal level of proficiency to further study data manipulation with the `dplyr` package and visualization with the `ggplot` package from the `tidyverse` ecosystem.  
+&nbsp;  
+There are many sources online, including tutorials, Q&A, cheat sheets, collections of useful code, for example the section on Statistics and Advanced Statistics at https://www.statmethods.net/, that go well beyond the introduction here.  
+&nbsp;  
+Our target audience is primarily the research community at VUB / UZ Brussel, those who have a keen interest to start studying R, or refresh their basic understanding, and especially those who aim to study data manipulation and visualization with `tidyverse`.  
+&nbsp;  
+We invite you to help improve this document by sending us feedback  
+wilfried.cools@vub.be or anonymously at <A HREF="https://www.icds.be/consulting">icds.be/consulting</A> (right side, bottom)
+&nbsp;  
+&nbsp;  
+
+\newpage
+
+<!-- INTRO -->
+
+# Exemplary Analysis
+&nbsp;  
+Before going into any detail, a simple analysis will show you where you are heading towards.
+&nbsp;  
+
+Let's use a dataset that is included into R, the `mtcars`, and make it available in my R workspace with the `data()` function. You will read in your own data in future.  
+```{r}
+data(mtcars)
+```
+
+The first 6 lines of the dataset is shown to give an idea about the variables.  
+```{r}
+head(mtcars)
+```
+
+A regression analysis of the `mpg` variable (dependent) on the `am` variable (independent) can be performed with the `lm()` function which stands for linear model. The independent variable `am` could be treated as a factor with two levels, `0` and `1` (see later) or as numeric with values 0 and 1, but because there are only two values the results will be the same. The result is assigned to the R object `myResult`.  
+```{r}
+myResult <- lm(mpg~am,data=mtcars)
+```
+
+To show the result, request the R object.  
+```{r}
+myResult
+```
+
+To request a summary, use the `summary()` function on the R object.  
+```{r}
+summary(myResult)
+```
+
+Various plots are offered by default using the `plot()` function, let's consider the qqplot and the influence measured by Cook's distance.  
+```{r}
+plot(myResult,2)
+plot(myResult,4)
+```
+
+The R object that represents the results of an `lm()` call (=regression) contains much more information, for example the r-squared.  
+```{r}
+summary(myResult)$r.squared
+```
+
+In this case, with a continuous dependent variable and a categorical independent an equivalent analysis would be ANOVA which can be performed with the `aov()` function in which the `am` is automatically treated as a factor.  
+```{r}
+summary(aov(mpg~am,data=mtcars))
+```
+
+The t-value when squared gives an F-value, so you can verify, both the ANOVA and regression offer exactly the same evidence for group differences in `mpg` for `am` equal to `0` or `1`.  
+
+&nbsp;  
+
+# Interaction with R
+&nbsp;  
+
+R commands can be entered in the R console for interpretation.  
+
+- Enter commands after the prompt, typically `>` to start and `+` to proceed.  
+- `enter` to make R interpret your command. `ESC` to exit a command. 
+- `Arrow Up` (Down) to request previous (next) command. The function `history()` shows earlier commands.  
+- `Tab` to complete the name of an R object if uniquely identifiable. `Tab` again to list possible names of R object if not uniquely identifiable.
+
+R scripts combine commands for current and future use, they can be flushed to the R console.  
+
+- from the script window in **RGui** (basic, find Rgui.exe in the folder with binary files, maybe `R/R-x.x.x/bin/x64` or `R/R-x.x.x/bin/i386`)
+- from source code editors, eg., **Notepad++** (general purpose)
+- integrated development environments: eg., **RStudio** (standard / recommended)
+
+# R workspace
+&nbsp;  
+An R workspace is a working environment for a user to interact with, that includes all R objects a user makes or imports.  
+&nbsp;  
+
+<!-- working directory -->
+
+An R workspace is linked to a directory on your system, the working directory, for its input and output. Retrieve the working directory:  
+```{r, eval=FALSE}
+getwd()
+```
+
+Check what is in that working directory already:  
+```{r, eval=FALSE}
+dir()
+```
+
+Set a working directory by its directory path, use forward slashes (or double backward `\\` because `\` is an escape character).  
+```{r, eval=FALSE}
+setwd('C:/Users/.../Documents/')
+```
+
+<!-- interaction -->
+
+From the working directory it is straightforward to include: 
+
+- objects from an R workspace using `load()` (eg., `load(mydta.RData)`)
+- R code with variables and/or functions to execute using `source()` (eg., `source('myprog.r')`)
+- functions from installed R packages using `library()` or `require()` (see below)
+- data from text or other files (see below)
+
+<!-- functionality -->
+
+An R workspace offers over 1000 functions and operators combined into the package `base`.  
+Include dedicated functions by loading in appropriate additional packages when necessary.  
+
+&nbsp;  
+To include all functions related to the `tidyverse` package, at least once install the packages of interest, and occasionally update them.  
+```{r, eval=FALSE}
+install.packages('tidyverse')
+```
+
+Every time a workspace is opened, all relevant packages should be included.  
+```{r, eval=FALSE}
+library(tidyverse)
+```
+
+Check which packages are loaded:  
+```{r, echo=TRUE}
+search()
+```
+
+Check where packages are stored:
+```{r, echo=TRUE}
+.libPaths()
+```
+
+Check all install packages (by default includes all locations given by .libPaths())  
+```{r, echo=TRUE, eval=FALSE}
+library()
+```
+
+To get help on how to use functions, eg., `read.delim()`, call them with `?read_delim`.  
+To get help on how to use packages, eg., `tidyr`, call `help(package='tidyr')`.  
+
+&nbsp;  
+
+# R objects
+&nbsp;  
+An R workspace contains R objects which can be data as well as methods. Each object is of a certain class which defines the object and how it is handled.  
+&nbsp;  
+
+Check the objects currently in your workspace:  
+```{r}
+ls()
+```
+
+Check the class of an object.  
+```{r}
+class(mtcars)
+```
+
+The data are represented by a dataframe.  
+```{r}
+class(myResult)
+```
+
+The results of an `lm` analysis are represented by an lm-object.  
+```{r}
+class(plot)
+```
+
+The plot function is represented as a function-object.  
+
+Objects are defined by various attributes and methods. The content of an object, its structure, can be extracted. This `str()` function is very very convenient, just to make sure what the object is.  
+
+Check the structure of an object.  
+```{r}
+str(mtcars)
+str(plot)
+```
+
+Some objects consist of many different pieces of information. Extract the names of the attributes.  
+```{r}
+attr(myResult,'names')
+```
+
+Check a particular piece of information in an object using these names following the `$` sign (to extract a slot from a list).  
+```{r}
+myResult$call
+myResult$contrasts
+```
+
+Or simply use the content directly, for example making a histogram with `hist()` of the residuals that remain after a regression analysis.  
+```{r}
+hist(myResult$residuals)
+```
+
+&nbsp;  
+
+# Create R objects
+&nbsp;  
+R objects are created by assigning values using the `<-` assignment operator. Equivalently, the `assign()` function can be used (eg., assign('myNewObject',c(1:10)))
+&nbsp;  
+
+Represents the directory path with a string, a character variable named myDirPath. (Be aware that `=` is equivalent to `<-`, equality is denoted `==`.)  
+```{r}
+myDirPath <- 'C:/Users/.../Documents/'
+class(myDirPath)
+```
+
+Once established, the R object can be used by any function able to deal with that type of object.  
+```{r, eval=FALSE}
+setwd(myDirPath) # set working directory to the given directory path
+```
+
+This way also the `myResult` object was created, with class `r class(myResult)`.  
+
+An R object can be removed, which is especially of interest when it uses a lot of memory.  
+```{r}
+rm(myDirPath)
+```
+
+A few R objects are created to exemplify. To show the result of an assignment is should either be called explicitly, or the assignment should be made in brackets.  
+```{r}
+a <- c('a vector of 2',1)
+a
+class(a)	# a character vector (number is turned into character)
+(b <- c(2,NA,3))
+class(b)	# a numeric vector
+(mx <- matrix(1:12,nrow=3))	# a matrix
+class(mx)	# matrix of numbers
+(mydataframe <- data.frame(y=runif(10),x=rep(c(1,2),each=5)))
+class(mydataframe)
+```
+
+&nbsp;  
+
+# Dataframes: R data object for analysis
+&nbsp;  
+Typically data are stored as a dataframe in R, which is a list of equally sized vectors. A vector is a combination of elements of a particular type.
+&nbsp;  
+
+Dataframes are similar to matrices, but more flexible because each vector can be of a different type. Roughly speaking, the first column could consist of characters, the second of numbers, the third of booleans, ... all of the same size. 
+
+An exemplary dataframe is created from vectors of size 4:  
+```{r}
+mydataframe <- data.frame(a=1:4,b=c(T,FALSE,T,TRUE),c=c('a','b','a','a'),d=c(1.2,NA,1.5,.2),
+e=c(1.2,T,.3,NA),f=c(1.2,'>5',NA,.2),g=c(T,FALSE,'true','?'))
+```
+
+Notice that the dataframe consists of column a to g.
+```{r}
+mydataframe
+str(mydataframe)
+```
+
+The different vectors within the dataframe:
+
+- a: integer (int)
+- b: logical (with TRUE or FALSE), T and F are converted into booleans TRUE and FALSE
+- c: factor, character type labels are converted into a factor with two levels
+- d: numeric, double values with NA for a missing value which does not change the type
+- e: numeric, the T is interpreted as TRUE which is a boolean which is converted into a 1
+- f: factor, the >5 can not be interpreted as numeric/boolean, all values are turned into characters and converted to factors
+- g: factor, the ? and true can not be interpreted as numeric/boolean, all values are turned into characters and converted to factors
+
+To avoid characters converted into factors, add the stringsAsFactors=FALSE argument:
+```{r}
+mydataframe2 <- data.frame(c=c('a','b','a','a'),f=c(1.2,'>5',NA,.2),g=c(T,FALSE,'true','?'), 
+	stringsAsFactors=FALSE)
+str(mydataframe2)
+```
+
+Notice, characters are quoted.
+
+Extract the vector from a dataframe, using the `$` operator and a name, the list selector `[[ ]]` with either a name or a number for the position.  
+```{r}
+mydataframe$a	# select vector named `a`
+mydataframe[['a']]	# select vector named `a`
+mydataframe[[1]]	# select vector at position 1
+mydataframe[,1]	# treats dataframe as if matrix, select column 1
+mydataframe[,'a']	# treats dataframe as if matrix, select column 'a'
+```
+
+The class is now of type vector, in this case numeric:  
+```{r}
+class(mydataframe$a)
+```
+
+Extract a row from a dataframe, using either the row name or a number of the position.
+
+The row names can be consulted.  
+```{r}
+row.names(mydataframe)
+```
+
+These row names can also be altered.  
+```{r}
+row.names(mydataframe) <- c('row.1','row.2','row.3','row.4')
+```
+
+To extract a row it is necessary to treat it like a matrix, with a position or name in front of the comma (after the comma is for columns).  
+```{r}
+mydataframe[4,] # treats dataframe as if matrix, select row 4
+mydataframe[c('row.1','row.4'),] # treats dataframe as if matrix, select rows by name
+```
+
+&nbsp;  
+
+# Read dataframes
+&nbsp;  
+Various ways exist to read data into R.  
+&nbsp;  
+
+In base R, read in a tab-delimited text file with header:  
+```{r}
+dta <- read.table('RealData_clean.txt',sep='\t',header=T)
+class(dta)
+```
+
+Instead of tabs as separator (sep='\t'), other symbols can be used, like comma's (sep=','). For other options consult the help file:  
+```{r, eval=FALSE}
+?read.table
+```
+
+Packages with dedicated read-and-write functions, like the `foreign` package, provide more functions for reading in data from SAS, Stata, SPSS, and more.  
+```{r, eval=FALSE}
+library(foreign)		# load in functions in package foreign
+help(package='foreign')	# consult the help file for package foreign
+read.spss("RealData_clean.sav",to.data.frame=T)	# read sav file
+```
+
+Excel is notoriously error prone but popular. A package dedicated to reading in data from Excel is `readxl`.  
+```{r}
+library(readxl)
+# read xlsx file and assign it to mydtaXls object
+mydtaXls <- read_excel("RealData_clean.xlsx",sheet="datafile")
+class(mydtaXls)	# consult class of mydtaXls object
+```
+
+The `tidyverse` ecosystem includes the `readr` package, also good for reading in data. Check out the arguments with `?read_delim`. Different types of files can be read in with different delimiters. Note that also a copy-paste is possible, an example in `readr` is included.  
+```{r, eval=FALSE}
+# library(readr) # or tidyverse
+mydtaCsv <- read_delim('RealData_clean.csv',delim=';')
+mydtaTxt <- read_delim('RealData_clean.txt',delim='\t')
+mydtaClp <- read_delim(clipboard(),delim='\t')
+```
+
+For each function, many arguments are possible.  
+More complex and versatile tools exist, also for XML, relational databases, unstructured data, ...  
+
+&nbsp;  
+
+# Data types and structures in R
+&nbsp;  
+Dataframes are lists of vectors with a particular type that should be assigned appropriately.  
+&nbsp;  
+
+From the `mydtaXls` file the 5th to 16th row is selected (before the comma in brackets), for the columns 1 to 3, 6, 7, 10 and 11 (after the comma in brackets).  
+```{r}
+rows <- c(1:3,6,8,10,186:189)
+(dta <- mydtaXls[rows,c(1:3,6,7,10:11)])
+```
+
+The extremely useful `str()` function extracts the structure of the R object. Use it!!  
+```{r}
+str(dta)
+```
+
+The classes in this case are `r paste0(class(dta),collapse=", ")`. When `tidyverse` is loaded, dataframes are automatically assigned the extra class `tbl_df` and `tbl` with extra functionality (see future).
+
+In the example the numeric `P` is reduced by 2, and then turned into a factor.  
+The `Dx` variable which is of type character is made a factor, which has levels.  
+The `CL` variable is made an ordered factor, with levels 'yes', 'maybe' and 'no' using the data 1, ? and 0.  
+The `CL` variable which is now a factor is turned into a numeric again, first making it a character vector (tricky issue: is to avoid obtaining the level ranks) and then making it a number.  
+The `FMT (mm)` variable is then assigned to the not yet existing `fmt` variable. Notice the ``, these quotes are required because the variable name contains a space.  
+Finally, the `FMT (mm)` is removed, simply by assigning it the NULL value.  
+```{r}
+dta$P <- factor(dta$P-2)
+levels(dta$P)
+dta$Dx <- factor(dta$Dx)
+levels(dta$Dx)
+dta$newCL <- factor(dta[,'CL'],ordered=TRUE,levels=c('1','?','0'),labels=c('yes','maybe','no'))
+dta[,'CL'] <- factor(dta[,'CL'],levels=c('1','0'))
+dta$numCL <- as.numeric(as.character(dta$CL))
+dta$fmt <- dta$`FMT (mm)`
+dta$`FMT (mm)` <- NULL
+```
+
+The resulting structure is:  
+```{r}
+str(dta[,c('P','Dx','newCL','CL','numCL','fmt')])
+```
+
+ADVICE: first always check structure, change where necessary
+
+&nbsp;  
+
+# Applying functions
+&nbsp;  
+Functions consist of code that you can execute, to process your data for example. Technically, R functions are also R objects.
+&nbsp;  
+
+A few simple functions are `summary()` and `table()`.  
+```{r}
+summary(dta$P)
+summary(as.numeric(dta$P))
+summary(as.numeric(as.character(dta$P)))
+table(dta$P,useNA='always')
+table(as.numeric(dta$P),useNA='always')
+```
+
+A summary taken from a factor offers a frequency table.  
+A summary of a factor that is converted to numeric offers a few statistics (extrema, mean, ...) calculated on the level ranks. This is probably not what is intended.  
+A summary of a factor that is converted first to a character, then to numeric will correctly offer the statistics of the actual values.  
+A table would offer a frequency table. Always be cautious when working with factors, they behave in sometimes complex ways.  
+
+ADVICE: first always check summaries and tables, change where necessary in order to detect anomalies
+
+Almost all statistical analyses in R will use functions others created for you to execute on your data. Examples have been the `lm()`, `aov()`, and `plot()`.
+
+&nbsp;  
+
+# Creating functions
+&nbsp;  
+Instead of using existing functions, it is possible to create your own. For simple data analysis this is rarely necessary but some basic understanding will probably help you understand how to use functions better.
+&nbsp;  
+
+A function in R has the structure `function(arglist) {body}`.
+
+The body contains a set of instructions that are executed each time the function is called.
+The list of arguments bring in the information required for the function to execute.
+
+A function that returns a random standard normal value could be:  
+```{r}
+myRandomNormalValue <- function(){ return(rnorm(1)) }
+myRandomNormalValue()
+myRandomNormalValue()
+```
+
+Each call of the function will execute it.
+
+A function that returns the value to the power 2 could be:  
+```{r}
+myValueToPower2 <- function(val){ return(val^2) }
+myValueToPower2(4)
+myValueToPower2(6)
+```
+
+An assignment of a value to the argument sets the default value.
+```{r}
+myValueToPower2 <- function(val=10){ return(val^2) }
+myValueToPower2(4)
+myValueToPower2()
+```
+
+It is possible to use the functions as if they are the return value.
+```{r}
+myValueToPower2() + myValueToPower2(8) / myValueToPower2(2)
+```
+
+Functions will become more important when chunks of code are repeated many times.  
+
+&nbsp;  
+
+# R operators
+&nbsp;  
+R offers the typical operators any programming language would.
+&nbsp;  
+
+- Arithmetic operators: `+` `-` `*` `/` `^` (power) `%%` (modulus) `%|%` (integer division)
+- Relational operators: `<` `>` `<=` `=>` `==` `!=` `%in%` (vector IN)
+- Logical operators: `!` `&` (elementwise AND) `&&` (vector AND) `|` (elementwise OR) `||` (vector OR)
+- Assignment operators: `<-` `=`
+
+&nbsp;  
+
+# R Control Structures
+&nbsp;  
+It is possible to execute code conditionally. For simple data analysis this is rarely necessary but some basic understanding will probably help you understand other researcher's code.  
+&nbsp;  
+
+Execute code dependent on a condition being true.  
+```{r}
+if(rnorm(1)>0){ cat('the generated value was above 0\n') }
+```
+
+Execute code dependent on a condition being true and other code when false.
+```{r}
+ifelse(rnorm(1)>0,'above','below')
+```
+
+Execute code multiple times, using an indicator variable.  
+```{r}
+for(it in 1:10){
+	if(rnorm(1)>0){ cat('for it equal to',it,'the generated value was above 0\n') }
+}
+```
+
+Execute a code as long as a condition holds.  
+```{r}
+it <- 3
+while(it > 0){
+	cat('it =',it,'\n')
+	it <- it-1
+}
+```
+
+Still other control structures exist.  
+
+&nbsp;  
+
+# R help files
+&nbsp;  
+The `?` should give basic information on functions and how to use them. 
+&nbsp;  
+
+To open the R help file, use the `?` operator and the name of the function without brackets.  
+```{r, eval=FALSE}
+?paste
+```
+
+A help file in R consists of:  
+
+- reference to package it belongs to (eg., base, which is always loaded automatically)
+- description
+- usage with required arguments and their default value if any
+- arguments with additional information on the arguments
+- details that could be of interest
+- value with information on the result
+- references for further information
+- see also for highlighting similar, or related functions
+- examples to show its use
+
+From the help file for `paste()`:
+
+- paste works on r objects that can be converted to character
+- a separator is put in between, by default a single space.
+- these values by default are not collapsed
+
+For example, with a first object a numeric vector of 4 elements and a second object a character vector of 2 elements.  
+```{r}
+paste(c(1:4),c("a","b"))	# turn into characters combinations with default separator
+paste(c(1:4),c("a","b"),sep='-')	# turn into characters combinations with dash separator
+paste(c(1:4),c("a","b"),sep='-',collapse='/')	# ~ and collapse with slash into one
+```
+
+More more examples are, in this case, provided at the help page.  
+
+<!--
+https://www.youtube.com/watch?v=p3i7Kz6C_-4&list=PLFAYD0dt5xCwDNFdrqeNoU9t-nhAWkbKe
+-->
